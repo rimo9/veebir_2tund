@@ -8,12 +8,32 @@
     }
     Moosipurk.instance = this; //this viitab moosipurgile
 
-    console.log('moosipurgi sees');
+    console.log(this);
+    //console.log('moosipurgi sees');
+
+    //panen rakenduse tööle
+    this.init();
+  };
+
+  //kõik moosipurgi funktsioonid siia sisse
+  Moosipurk.prototype = {
+    init: function(){
+      console.log('rakendus käivitus');
+      //Esialgne loogika tuleb siia
+      //hakka kuulama hiireklõpse
+      this.bindMouseEvents();
+    },
+    bindMouseEvents: function(){
+      document.querySelector('.add-new-jar').addEventListener('click', this.addNewClick.bind(this));
+    },
+    addNewClick: function(event){
+      console.log(event);
+
+    }
   };
 
   window.onload = function(){
     var app = new Moosipurk();
-    var app2 = new Moosipurk();
   };
 
 })();
